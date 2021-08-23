@@ -1,0 +1,313 @@
+
+<!-- saved from url=(0041)http://localhost/tab/DGA_deploy.php#about -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+        <title>Advance DGA Interpretation Tool (Web version)</title>  
+		<link rel="stylesheet" href="./include/jquery-ui.css">
+        <link rel="stylesheet" href="./include/bootstrap.min.css">
+        <link rel="stylesheet" href="./include/head-foot.css">
+		<script src="./include/jquery-3.6.0.js.download"></script>
+		<script src="./include/jquery-ui.js.download"></script>
+        <script src="./include/combine_dga_min.js.download"></script>
+
+    </head>  
+    
+    <body>
+        <div class="scrollmenu">
+            <a href="#home">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="container">
+			<br>
+			
+			<h3 align="center">Advance DGA Interpretation Tool (portable web version)</h3><br>
+			<br>
+            Guide: press "Add" to input gas concentrations in ppm, the script will automatically use 5 methods to analyze, including the Fuzzy Ratio and Percentage method developed by S.H. Cuong Nguyen and T. Phong Mai<br>
+            Fault code:<br> 
+            <strong>N</strong> - Normal<br> 
+            <strong>PD</strong> - Partial discharge<br> 
+            <strong>D1</strong> - Low energy discharge<br>
+            <strong>D2</strong> - High energy discharge<br>
+            <strong>T1</strong> - Thermal fault with t &lt; 300ºC<br> 
+            <strong>T2</strong> - Thermal fault with 300ºC &lt; t &lt; 700ºC<br>
+            <strong>T3</strong> Thermal fault with t &gt; 700ºC<br>
+			<br>
+			
+			<br>
+			<form method="post" id="user_form">
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered" id="user_data">
+						<tbody><tr>
+							<th>No</th>
+							<th>H2</th>
+							<th>CH4</th>
+							<th>C2H6</th>
+                            <th>C2H4</th>
+							<th>C2H2</th>
+                            <th>IEC</th>
+                            <th>Rogers</th>
+                            <th>Duval triangle</th>
+							<th>Duval pentagon</th>
+                            <th>Fuzzy RP</th>
+							<th>Details</th>
+							<th>Remove</th>
+						</tr>
+					<tr id="row_1"><td>1 <input type="hidden" name="hidden_No[]" id="No1" class="No" value="1"></td><td>23.6 <input type="hidden" name="hidden_H2[]" id="H21" class="H2" value="23.6"></td><td>12 <input type="hidden" name="hidden_CH4[]" id="CH41" value="12"></td><td>3.8 <input type="hidden" name="hidden_C2H6[]" id="C2H61" value="3.8"></td><td>50.9 <input type="hidden" name="hidden_C2H4[]" id="C2H41" value="50.9"></td><td>0 <input type="hidden" name="hidden_C2H2[]" id="C2H21" value="0"></td><td>N/A <input type="hidden" name="hidden_IEC[]" id="IEC1" value="N/A"></td><td>T2 <input type="hidden" name="hidden_roger[]" id="roger1" value="T2"></td><td>T3 <input type="hidden" name="hidden_tri_duval[]" id="duval_tri1" value="T3"></td><td>T3 <input type="hidden" name="hidden_pen_duval[]" id="duval_pen1" value="T3"></td><td>T2 (30%) T3 (70%)  <input type="hidden" name="hidden_duval[]" id="frp1" value="T2 (30%) T3 (70%) "></td><td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="1">View</button></td><td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="1">Remove</button></td></tr><tr id="row_2"><td>2 <input type="hidden" name="hidden_No[]" id="No2" class="No" value="2"></td><td>5.6 <input type="hidden" name="hidden_H2[]" id="H22" class="H2" value="5.6"></td><td>32 <input type="hidden" name="hidden_CH4[]" id="CH42" value="32"></td><td>10.1 <input type="hidden" name="hidden_C2H6[]" id="C2H62" value="10.1"></td><td>13.1 <input type="hidden" name="hidden_C2H4[]" id="C2H42" value="13.1"></td><td>0 <input type="hidden" name="hidden_C2H2[]" id="C2H22" value="0"></td><td>T2 <input type="hidden" name="hidden_IEC[]" id="IEC2" value="T2"></td><td>N/A <input type="hidden" name="hidden_roger[]" id="roger2" value="N/A"></td><td>T2 <input type="hidden" name="hidden_tri_duval[]" id="duval_tri2" value="T2"></td><td>T2 <input type="hidden" name="hidden_pen_duval[]" id="duval_pen2" value="T2"></td><td>T2 (100%)  <input type="hidden" name="hidden_duval[]" id="frp2" value="T2 (100%) "></td><td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="2">View</button></td><td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="2">Remove</button></td></tr><tr id="row_3"><td>3 <input type="hidden" name="hidden_No[]" id="No3" class="No" value="3"></td><td>43.3 <input type="hidden" name="hidden_H2[]" id="H23" class="H2" value="43.3"></td><td>50 <input type="hidden" name="hidden_CH4[]" id="CH43" value="50"></td><td>8.9 <input type="hidden" name="hidden_C2H6[]" id="C2H63" value="8.9"></td><td>11.2 <input type="hidden" name="hidden_C2H4[]" id="C2H43" value="11.2"></td><td>0 <input type="hidden" name="hidden_C2H2[]" id="C2H23" value="0"></td><td>T2 <input type="hidden" name="hidden_IEC[]" id="IEC3" value="T2"></td><td>T2 <input type="hidden" name="hidden_roger[]" id="roger3" value="T2"></td><td>T1 <input type="hidden" name="hidden_tri_duval[]" id="duval_tri3" value="T1"></td><td>T1 <input type="hidden" name="hidden_pen_duval[]" id="duval_pen3" value="T1"></td><td>T2 (99%)  <input type="hidden" name="hidden_duval[]" id="frp3" value="T2 (99%) "></td><td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="3">View</button></td><td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="3">Remove</button></td></tr></tbody></table>
+				</div>
+				<div align="center">
+					<button type="button" name="add" id="add" class="btn btn-success btn-xs">Add</button>
+				</div>
+			</form>
+
+			<br>
+		</div>
+		
+		
+
+        <footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="footer">
+<strong>Developed by S.H. Cuong Nguyen</strong><br>
+Contact me at nguyensihuycuong@gmail.com
+                    
+              
+           
+</div>
+  <!-- Copyright -->
+    
+    
+  
+
+
+
+
+<script>  
+$(document).ready(function(){ 
+	
+	var count = 0;
+
+	$('#user_dialog').dialog({
+		autoOpen:false,
+		width:400
+	});
+	
+	$('#add').click(function(){
+		$('#user_dialog').dialog('option', 'title', 'Add Data');
+		
+		$('#H2').val('');
+		$('#CH4').val('');
+		$('#C2H6').val('');
+		$('#C2H4').val('');
+        $('#C2H2').val('');
+		
+		$('#error_H2').text('');
+		$('#error_CH4').text('');
+		$('#error_C2H6').text('');
+		$('#error_C2H4').text('');
+        $('#error_C2H2').text('');
+		
+		$('#H2').css('border-color', '');
+		$('#CH4').css('border-color', '');
+		$('#C2H6').css('border-color', '');
+		$('#C2H4').css('border-color', '');
+        $('#C2H2').css('border-color', '');
+		
+		
+		$('#save').text('Save');
+		$('#user_dialog').dialog('open');
+	});
+
+	$('#save').click(function(){
+		var error_H2 = '';
+		var error_CH4 = '';
+		var error_C2H6 = '';
+		var error_C2H4 = '';
+        var error_C2H2 = '';
+		
+		var H2 = '';
+		var CH4 = '';
+		var C2H6 = '';
+		var C2H4 = '';
+		var C2H2 = '';
+
+        var iec_result = '';
+        var roger_result = '';
+        var duval_triangle_result = '';
+		var duval_pentagon_result = '';
+        var frp_result = '';
+        var iec_code = '';
+        var roger_code = '';
+        var duval_triangle_code = '';
+		var duval_pentagon_code = '';
+        var frp_code = '';
+
+			
+		if($('#CH4').val() == '')
+		{
+			error_CH4 = 'Last Name is required';
+			$('#error_CH4').text(error_CH4);
+			$('#CH4').css('border-color', '#cc0000');
+			CH4 = '';
+		}
+		else
+		{
+			error_CH4 = '';
+			$('#error_CH4').text(error_CH4);
+			$('#CH4').css('border-color', '');
+			CH4 = $('#CH4').val();
+		}
+		
+			error_H2 = '';
+			$('#error_H2').text(error_H2);
+			$('#H2').css('border-color', '');
+			H2 = $('#H2').val();
+			
+			error_C2H6 = '';
+			$('#error_C2H6').text(error_C2H6);
+			$('#error_C2H6').css('border-color', '');
+			C2H6 = $('#C2H6').val();
+			
+			error_C2H4 = '';
+			$('#error_C2H4').text(error_C2H4);
+			$('#error_C2H4').css('border-color', '');
+			C2H4 = $('#C2H4').val();
+
+            error_C2H2 = '';
+			$('#error_C2H2').text(error_C2H2);
+			$('#error_C2H2').css('border-color', '');
+			C2H2 = $('#C2H2').val();
+		
+		if(error_H2 != '' || error_CH4 != '' || error_C2H6 != '' || error_C2H4 != '' || error_C2H2 != '')
+		{
+			return false;
+		}
+		else
+		{
+            var gas_content = {H2: Number(H2), CH4: Number(CH4), C2H6: Number(C2H6), C2H4: Number(C2H4), C2H2: Number(C2H2)};
+            
+            iec_result = iec_original(gas_content);
+            roger_result = roger_original(gas_content);
+            duval_triangle_result = duval_triangle_1(gas_content);
+			duval_pentagon_result = duval_pentagon_1(gas_content);
+            frp_result = frp(gas_content);
+            iec_code = String(iec_result.Code);
+            roger_code = String(roger_result.Code);
+            duval_triangle_code = String(duval_triangle_result.Code);
+			duval_pentagon_code = String(duval_pentagon_result.Code);
+            frp_code = String(frp_result.Code);
+			if($('#save').text() == 'Save')
+			{
+				count = count + 1;
+				output = '<tr id="row_'+count+'">';
+                output += '<td>'+count+' <input type="hidden" name="hidden_No[]" id="No'+count+'" class="No" value="'+count+'" /></td>';
+				output += '<td>'+H2+' <input type="hidden" name="hidden_H2[]" id="H2'+count+'" class="H2" value="'+H2+'" /></td>';
+				output += '<td>'+CH4+' <input type="hidden" name="hidden_CH4[]" id="CH4'+count+'" value="'+CH4+'" /></td>';
+				output += '<td>'+C2H6+' <input type="hidden" name="hidden_C2H6[]" id="C2H6'+count+'" value="'+C2H6+'" /></td>';
+				output += '<td>'+C2H4+' <input type="hidden" name="hidden_C2H4[]" id="C2H4'+count+'" value="'+C2H4+'" /></td>';
+                output += '<td>'+C2H2+' <input type="hidden" name="hidden_C2H2[]" id="C2H2'+count+'" value="'+C2H2+'" /></td>';
+                output += '<td>'+iec_code+' <input type="hidden" name="hidden_IEC[]" id="IEC'+count+'" value="'+iec_code+'" /></td>';
+                output += '<td>'+roger_code+' <input type="hidden" name="hidden_roger[]" id="roger'+count+'" value="'+roger_code+'" /></td>';
+				output += '<td>'+duval_triangle_code+' <input type="hidden" name="hidden_tri_duval[]" id="duval_tri'+count+'" value="'+duval_triangle_code+'" /></td>';
+				output += '<td>'+duval_pentagon_code+' <input type="hidden" name="hidden_pen_duval[]" id="duval_pen'+count+'" value="'+duval_pentagon_code+'" /></td>';
+                output += '<td>'+frp_code+' <input type="hidden" name="hidden_duval[]" id="frp'+count+'" value="'+frp_code+'" /></td>';
+                output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+count+'">View</button></td>';
+				output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+count+'">Remove</button></td>';
+				output += '</tr>';
+				$('#user_data').append(output);
+			}
+			else
+			{
+				var row_id = $('#hidden_row_id').val();
+				output = '<td>'+row_id+' <input type="hidden" value="'+row_id+'" /></td>';
+                output += '<td>'+H2+' <input type="hidden" name="hidden_H2[]" id="H2'+row_id+'" class="H2" value="'+H2+'" /></td>';
+				output += '<td>'+CH4+' <input type="hidden" name="hidden_CH4[]" id="CH4'+row_id+'" value="'+CH4+'" /></td>';
+				output += '<td>'+C2H6+' <input type="hidden" name="hidden_C2H6[]" id="C2H6'+row_id+'" value="'+C2H6+'" /></td>';
+				output += '<td>'+C2H4+' <input type="hidden" name="hidden_C2H4[]" id="C2H4'+row_id+'" value="'+C2H4+'" /></td>';
+                output += '<td>'+C2H2+' <input type="hidden" name="hidden_C2H2[]" id="C2H2'+row_id+'" value="'+C2H2+'" /></td>';
+                output += '<td>'+iec_code+' <input type="hidden" name="hidden_IEC[]" id="IEC'+row_id+'" value="'+iec_code+'" /></td>';
+                output += '<td>'+roger_code+' <input type="hidden" name="hidden_roger[]" id="roger'+row_id+'" value="'+roger_code+'" /></td>';
+				output += '<td>'+duval_triangle_code+' <input type="hidden" name="hidden_duval_tri[]" id="duval_tri'+row_id+'" value="'+duval_triangle_code+'" /></td>';
+				output += '<td>'+duval_pentagon_code+' <input type="hidden" name="hidden_duval_pen[]" id="duval_pen'+row_id+'" value="'+duval_pentagon_code+'" /></td>';
+                output += '<td>'+frp_code+' <input type="hidden" name="hidden_duval[]" id="frp'+row_id+'" value="'+frp_code+'" /></td>';
+				output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+row_id+'">View</button></td>';
+				output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+row_id+'">Remove</button></td>';
+				$('#row_'+row_id+'').html(output);
+			}
+
+			$('#user_dialog').dialog('close');
+		}
+	});
+
+	$(document).on('click', '.view_details', function(){
+		var row_id = $(this).attr("id");
+		var H2 = $('#H2'+row_id+'').val();
+		var CH4 = $('#CH4'+row_id+'').val();
+		var C2H6 = $('#C2H6'+row_id+'').val();
+		var C2H4 = $('#C2H4'+row_id+'').val();
+        var C2H2 = $('#C2H2'+row_id+'').val();
+		$('#H2').val(H2);
+		$('#CH4').val(CH4);
+		$('#C2H6').val(C2H6);
+		$('#C2H4').val(C2H4);
+        $('#C2H2').val(C2H2);
+		$('#save').text('Edit');
+		$('#hidden_row_id').val(row_id);
+		$('#user_dialog').dialog('option', 'title', 'Edit Data');
+		$('#user_dialog').dialog('open');
+	});
+
+	$(document).on('click', '.remove_details', function(){
+		var row_id = $(this).attr("id");
+		if(confirm("Are you sure you want to remove this row data?"))
+		{
+			$('#row_'+row_id+'').remove();
+		}
+		else
+		{
+			return false;
+		}
+	});
+
+	$('#action_alert').dialog({
+		autoOpen:false
+	});
+
+
+	
+});  
+</script></footer><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="user_dialog" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 400px; top: 135.2px; left: 546px; display: none;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Edit Data</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="user_dialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 92.4px; max-height: none; height: auto;">
+			<div class="form-group">
+				<label>H2</label>
+				<input type="number" name="H2" id="H2" class="form-control">
+				<span id="error_H2" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label>CH4</label>
+				<input type="number" name="CH4" id="CH4" class="form-control">
+				<span id="error_CH4" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label>C2H6</label>
+				<input type="number" name="C2H6" id="C2H6" class="form-control">
+				<span id="error_C2H6" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label>C2H4</label>
+				<input type="number" name="C2H4" id="C2H4" class="form-control">
+				<span id="error_C2H4" class="text-danger"></span>
+			</div>
+            <div class="form-group">
+				<label>C2H2</label>
+				<input type="number" name="C2H2" id="C2H2" class="form-control">
+				<span id="error_C2H2" class="text-danger"></span>
+			</div>
+
+
+			<div class="form-group" align="center">
+				<input type="hidden" name="row_id" id="hidden_row_id" value="1">
+				<button type="button" name="save" id="save" class="btn btn-info">Edit</button>
+			</div>
+		</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="action_alert" aria-labelledby="ui-id-2" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-2" class="ui-dialog-title">Action</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="action_alert" class="ui-dialog-content ui-widget-content">
+
+		</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div></body></html>
